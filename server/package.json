@@ -4,7 +4,8 @@
   "description": "rest api fullstack example",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "nodemon": "nodemon app.js"
   },
   "keywords": [
     "js",
@@ -12,5 +13,11 @@
     "api"
   ],
   "author": "alex-js",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
 }

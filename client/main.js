@@ -11,11 +11,16 @@ new Vue({
       contacts: [{ id: 1, name: 'Alex', value: '234-456-567', marked: false }],
     };
   },
+  computed: {
+    canCreate() {
+      return this.form.value.trim() && this.form.name.trim();
+    },
+  },
   methods: {
     createContact() {
       const { ...contact } = this.form;
 
-      this.contacts.push({ ...contact, id: Date.now() });
+      this.contacts.push({ ...contact, id: Date.now(), marked: false });
 
       this.form.name = '';
       this.form.value = '';

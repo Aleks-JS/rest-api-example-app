@@ -4,6 +4,11 @@ const app = express();
 
 const CONTACTS = [{ id: 1, name: 'Alex', value: '234-456-567', marked: false }];
 
+// GET
+app.get('/api/contacts', (req, res) => {
+  res.status(200).json(CONTACTS);
+});
+
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 app.get('*', (req, res) => {

@@ -33,6 +33,10 @@ new Vue({
       this.contacts = this.contacts.filter((c) => c.id !== id);
     },
   },
+  async mounted() {
+    const data = await request('/api/contacts');
+    console.log(data);
+  },
 });
 
 async function request(url, method = 'GET', data = null) {
@@ -50,7 +54,7 @@ async function request(url, method = 'GET', data = null) {
       headers,
       body,
     });
-    return response.json();
+    return await response.json();
   } catch (e) {
     console.warn('Error', e.message);
   }

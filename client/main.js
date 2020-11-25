@@ -20,5 +20,9 @@ new Vue({
       this.form.name = '';
       this.form.value = '';
     },
+    markContact(id) {
+      console.log(id);
+    },
+    removeContact(id) {},
   },
 });

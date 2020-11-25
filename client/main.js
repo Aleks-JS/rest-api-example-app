@@ -8,7 +8,7 @@ new Vue({
         name: '',
         value: '',
       },
-      contacts: [{ id: 1, name: 'Alex', value: '234-456-567', marked: false }],
+      contacts: [],
     };
   },
   computed: {
@@ -34,3 +34,24 @@ new Vue({
     },
   },
 });
+
+async function request(url, method = 'GET', data = null) {
+  try {
+    const headers = {};
+    let body;
+
+    if (data) {
+      headers['Content-Type'] = 'application/json';
+      body = JSON.stringify(data);
+    }
+
+    const response = await fetch(url, {
+      method,
+      headers,
+      body,
+    });
+    return response.json();
+  } catch (e) {
+    console.warn('Error', e.message);
+  }
+}

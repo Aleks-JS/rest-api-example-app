@@ -8,13 +8,19 @@ const CONTACTS = [
   { id: v4(), name: 'Alex', value: '234-456-567', marked: false },
 ];
 
+app.use(express.json());
+
 // GET
 app.get('/api/contacts', (req, res) => {
   res.status(200).json(CONTACTS);
 });
 
 // POST
-app.post('/api/contacts', (req, res) => {});
+app.post('/api/contacts', (req, res) => {
+  const contact = { ...req.body, id: v4(), marked: false };
+  CONTACTS.push(contact);
+  res.status(201).json({ contact });
+});
 
 app.use(express.static(path.resolve(__dirname, '../client')));
 

@@ -8,7 +8,7 @@ new Vue({
         name: '',
         value: '',
       },
-      contacts: [],
+      contacts: [{ id: 1, name: 'Alex', value: '234-456-567', marked: false }],
     };
   },
   methods: {
@@ -21,7 +21,8 @@ new Vue({
       this.form.value = '';
     },
     markContact(id) {
-      console.log(id);
+      const contact = this.contacts.find((c) => c.id === id);
+      contact.marked = true;
     },
     removeContact(id) {},
   },

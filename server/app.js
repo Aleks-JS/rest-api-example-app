@@ -28,6 +28,13 @@ app.delete('/api/contacts/:id', (req, res) => {
   res.status(200).json({ message: 'contact delete' });
 });
 
+// PUT
+app.put('/api/contacts/:id', (req, res) => {
+  const index = CONTACTS.findIndex((el) => el.id === req.params.id);
+  CONTACTS[index] = req.body;
+  res.json(CONTACTS[index]);
+});
+
 app.use(express.static(path.resolve(__dirname, '../client')));
 
 app.get('*', (req, res) => {

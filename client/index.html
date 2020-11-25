@@ -29,15 +29,17 @@
             </div>
             <button class="btn btn-primary" type="submit">Создать</button>
         </form>
-
-        <div class="card mb-3" v-for="contact in contacts">
-            <div class="card-body">
-                <h5 class="card-title">{{ contact.name }}</h5>
-                <p class="card-text">{{ contact.value }}</p>
-                <button class="btn btn-primary">Отметить</button>
-                <button class="btn btn-danger">Удалить</button>
+        <div v-if="contacts.length">
+            <div class="card mb-3" v-for="contact in contacts">
+                <div class="card-body">
+                    <h5 class="card-title">{{ contact.name }}</h5>
+                    <p class="card-text">{{ contact.value }}</p>
+                    <button class="btn btn-primary">Отметить</button>
+                    <button class="btn btn-danger">Удалить</button>
+                </div>
             </div>
         </div>
+        <p v-else>Сохраненных данных пока нет</p>
     </div>
 
     <script type="module" src="main.js"></script>
